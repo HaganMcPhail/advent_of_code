@@ -1,4 +1,4 @@
-def calculate_score(line)
+def calculate_score_part_1(line)
   elf = ['A', 'B', 'C']
   me = ['X', 'Y', 'Z']
   elf_result = elf.find_index(line.split(" ")[0])
@@ -15,7 +15,7 @@ def calculate_score(line)
   score
 end
 
-def calculate_by_outcome(line)
+def calculate_score_part_2(line)
   elf = ['A', 'B', 'C']
   outcome = ['X', 'Y', 'Z']
   elf_result = elf.find_index(line.split(" ")[0])
@@ -36,15 +36,15 @@ def calculate_by_outcome(line)
 end
 
 file = File.open("input.txt")
-round_totals = []
-new_totals = []
+part_1 = []
+part_2 = []
 bags = file.readlines.map(&:chomp).each do |line|
-  round_totals << calculate_score(line)
-  new_totals << calculate_by_outcome(line)
+  part_1 << calculate_score_part_1(line)
+  part_2 << calculate_score_part_2(line)
 end
 
-puts "Total: #{round_totals.sum}"
-puts "Total: #{new_totals.sum}"
+puts "Total: #{part_1.sum}"
+puts "Total: #{part_2.sum}"
 
 # test = [
 #   'A X',
